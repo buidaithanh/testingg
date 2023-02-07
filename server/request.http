@@ -1,0 +1,55 @@
+
+POST  http://localhost:5000/api/auth/register
+Content-Type:application/json
+
+{
+    "username":"daithanh",
+    "password":"123456"
+}
+
+###
+POST  http://localhost:5000/api/auth/login
+Content-Type:application/json
+
+{
+    "username":"daithanh",
+    "password":"123456"
+}
+
+
+###
+POST  http://localhost:5000/api/product
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2RhMzdiYWM5ODdmNjhkYzZiZDA0YmUiLCJpYXQiOjE2NzU0MTM5NjJ9.bJHVFIjIR6EtV1xkPeqtaO0p-ePsxcwZaM-6oGgBtO0
+
+{
+    "name":"cub tea",
+    "desc":"la 1 giong cho nho",
+    "picture":"https://dogily.vn/wp-content/uploads/2023/01/cho-corgi.jpg",
+    "price":"500"
+}
+
+###
+GET  http://localhost:5000/api/product
+
+###
+PUT  http://localhost:5000/api/product/63dccc55d7c321ac9a3852a7
+Content-Type:application/json
+
+{
+    "name":"cub tea",
+    "desc":"la 1 giong cho not small",
+    "picture":"https://dogily.vn/wp-content/uploads/2023/01/cho-corgi.jpg",
+    "price":"500"
+}
+
+###
+DELETE   http://localhost:5000/api/product/63dccc55d7c321ac9a3852a7
+Content-Type:application/json
+
+{
+    "name":"cub tea",
+    "desc":"la 1 giong cho not small",
+    "picture":"https://dogily.vn/wp-content/uploads/2023/01/cho-corgi.jpg",
+    "price":"500"
+}
