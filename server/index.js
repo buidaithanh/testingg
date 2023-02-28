@@ -8,12 +8,9 @@ const productRouter = require("./routes/product");
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      `mongodb+srv://daithanh:dragonjack01@learn-testing.pezkihg.mongodb.net/?retryWrites=true&w=majority`,
-      {
-        useNewUrlParser: true,
-      }
-    );
+    await mongoose.connect(process.env.MONDODB_URL, {
+      useNewUrlParser: true,
+    });
 
     console.log("mongodb connected");
   } catch (error) {
