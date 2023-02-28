@@ -1,23 +1,16 @@
 
-
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "vercel-sapper",
-        "config": {
-        "include": ["posts"]
+    "functions": {
+      "index.js": {
+        "memory": 1024
       }
-      }
-    ],
-    "routes": [
+    },
+    "rewrites": [
       {
-        "src": "/(.*)",
-        "dest": "/"
+        "source": "/(.*)",
+        "destination": "index.js"
       }
     ]
   }
-  
   
  
