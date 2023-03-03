@@ -20,7 +20,7 @@ const AuthContextProvider = ({ children }) => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5000/api/auth");
+      const response = await axios.get(`${apiUrl}/auth`);
       if (response.data.success) {
         dispatch({
           type: "SET_AUTH",
@@ -43,7 +43,7 @@ const AuthContextProvider = ({ children }) => {
   const registerUser = async (userForm) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${apiUrl}/auth/register`,
         userForm
       );
       if (response.data.success)
@@ -61,7 +61,7 @@ const AuthContextProvider = ({ children }) => {
   const LoginUser = async (userForm) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${apiUrl}/auth/login`,
         userForm
       );
       if (response.data.success)
