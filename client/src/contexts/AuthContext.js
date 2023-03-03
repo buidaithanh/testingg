@@ -3,6 +3,7 @@ import { authReducer } from "../reducer/authReducer";
 import axios from "axios";
 import { LOCAL_STORAGE_TOKEN_KEY } from "./constains";
 import setAuthToken from "../utils/setAuthToken";
+import { apiUrl } from "./constains";
 
 export const AuthContext = createContext();
 
@@ -20,7 +21,7 @@ const AuthContextProvider = ({ children }) => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5000/api/auth");
+      const response = await axios.get(`${apiUrl}/auth`);
       if (response.data.success) {
         dispatch({
           type: "SET_AUTH",
@@ -42,10 +43,7 @@ const AuthContextProvider = ({ children }) => {
   //register
   const registerUser = async (userForm) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
-        userForm
-      );
+      const response = await axios.post(`${apiUrl}/auth/register`, userForm);
       if (response.data.success)
         localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, response.data.acessToken);
 
@@ -60,10 +58,7 @@ const AuthContextProvider = ({ children }) => {
   //login
   const LoginUser = async (userForm) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        userForm
-      );
+      const response = await axios.post(`${apiUrl}/auth/login`, userForm);
       if (response.data.success)
         localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, response.data.acessToken);
       await loadUser();
